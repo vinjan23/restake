@@ -9,7 +9,7 @@ WALLET_NAME=jb #don't need to change it
 
 for (( ;; )); do
         echo -e "Get reward from Delegation"
-        echo "YOUR_PASSWORD" | planqd tx distribution withdraw-rewards $(planqd keys show jb --bech val -a) --commission --gas="1000000" --gas-adjustment="1.15" --gas-prices="30000000000aplanq" --chain-id planq_7070-2 --from jb
+        echo "YOUR_PASSWORD" | planqd tx distribution withdraw-rewards plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr --commission --gas="1000000" --gas-adjustment="1.15" --gas-prices="30000000000aplanq" --chain-id planq_7070-2 --from jb
         for (( timer=30; timer>0; timer-- ))
         do
                 printf "* sleep for ${RED_COLOR}%02d${WITHOUT_COLOR} sec\r" $timer
@@ -27,7 +27,7 @@ for (( ;; )); do
         echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} aplanq\n"
         echo -e "Stake ALL 11111\n"
         if (( BAL > 900000 )); then
-        echo "YOUR_PASSWORD" | planqd tx staking delegate YOUR_VALOPER_ADDRESS ${BAL}aplanq --from jb --chain-id planq_7070-2 --gas-adjustment 1.15 --gas=1000000 --gas-prices=30000000000aplanq 
+        echo "YOUR_PASSWORD" | planqd tx staking delegate plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr ${BAL}aplanq --from jb --chain-id planq_7070-2 --gas-adjustment 1.15 --gas=1000000 --gas-prices=30000000000aplanq 
         else
           echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} aplanq BAL < 900000 ((((\n"
         fi 
