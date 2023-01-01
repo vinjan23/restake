@@ -1,17 +1,15 @@
 ### Auto
 
 ```
-wget -O delegate.sh https://raw.githubusercontent.com/vinjan23/auto-delegation-planq-mainnet/main/delegate.sh && chmod +x delegate.sh && ./delegate.sh
-```
-
-```
-screen
-```
-
-```
+git clone https://github.com/vinjan23/auto-delegation-planq-mainnet.git
+cd auto-delegation-planq-mainnet
 chmod +x delegate.sh
 ```
+
 ```
-./delegate.sh
+sudo nano delegate.sh
 ```
 
+```
+crontab -e
+```
