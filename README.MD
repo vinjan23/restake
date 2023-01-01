@@ -1,19 +1,12 @@
 ### Auto
 ```
-git clone https://github.com/vinjan23/auto-delegation-planq-mainnet.git
-cd auto-delegation-planq-mainnet
+screen
+```
+
+```
 chmod +x delegate.sh
 ```
-
-
-
-
-
-### Set 
 ```
-sudo nano delegate.sh
-```
-```
-crontab -e
+./delegate.sh
 ```
 
