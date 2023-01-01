@@ -1,40 +1,36 @@
 #!/bin/bash
-RED_COLOR='\033[0;31m'
-WITHOU_COLOR='\033[0m'
-DELEGATOR_ADDRESS='plq1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmzhj3qj'
-VALIDATOR_ADDRESS='plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr'
-DELAY=1800*1 #in secs - how often restart the script 
-WALLET_NAME=jb #don't need to change it
-#NODE="tcp://127.0.0.1:33657" #don't need to change it
 
-for (( ;; )); do
-        echo -e "Get reward from Delegation"
-        echo "YOUR_PASSWORD" | planqd tx distribution withdraw-rewards plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr --commission --gas="1000000" --gas-adjustment="1.15" --gas-prices="30000000000aplanq" --chain-id planq_7070-2 --from jb
-        for (( timer=30; timer>0; timer-- ))
-        do
-                printf "* sleep for ${RED_COLOR}%02d${WITHOUT_COLOR} sec\r" $timer
-                sleep 1
-        done
- 
-#        BAL=$(planqd query bank balances YOUR_DELEGATOR_ADDRESS --chain-id planq_7070-2| awk '/amount:/{print $NF}' | tr -d '"')
-        BAL=$(planqd query bank balances YOUR_DELEGATOR_ADDRESS --chain-id planq_7070-2 --output json | jq -r '.balances[] | select(.denom=="aplanq")' | jq -r .amount)
-        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} aplanq\n"
+############ START - SET PROPERTIES #########
 
-       
-        BAL=$(planqd query bank balances YOUR_DELEGATOR_ADDRESS --chain-id planq_7070-2 --output json | jq -r '.balances[] | select(.denom=="aplanq")' | jq -r .amount)
-#        BAL=$(planqd query bank balances YOUR_DELEGATOR_ADDRESS --chain-id planq_7070-2 | awk '/amount:/{print $NF}' | tr -d '"')
-        BAL=$(($BAL-50000))
-        echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} aplanq\n"
-        echo -e "Stake ALL 11111\n"
-        if (( BAL > 900000 )); then
-        echo "YOUR_PASSWORD" | planqd tx staking delegate plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr ${BAL}aplanq --from jb --chain-id planq_7070-2 --gas-adjustment 1.15 --gas=1000000 --gas-prices=30000000000aplanq 
-        else
-          echo -e "BALANCE: ${GREEN_COLOR}${BAL}${WITHOU_COLOR} aplanq BAL < 900000 ((((\n"
-        fi 
-        for (( timer=${DELAY}; timer>0; timer-- ))
-        do
-                printf "* sleep for ${RED_COLOR}%02d${WITHOU_COLOR} sec\r" $timer
-                sleep 1
-        done       
+ADDRESS="<plq...>"
+VALIDATOR="<plqvaloper...>"
+KEY_NAME="<key_name>"
+PWD="<wallet_password>"
 
-done
+CHAIN_ID="<chain-id>" #for mainnet: stargaze-1
+GAS_PRICE="<price_value>" #for example: 200000 or auto
+GAS="<gas_value>" #for example: 200ustars
+GAS_ADJUSMENT="<value>"
+
+############ END - SET PROPERTIES #########
+
+############ START - AUTO DELEGATION #########
+
+# Withdraw 
+planqd tx distribution withdraw-rewards "${VALIDATOR}" --commission --from "${KEY_NAME}" --chain-id=${CHAIN_ID} --gas-price="${PRICE_VALUE}" --gas="${GAS_VALUE}" --gas-adjustment="$(VALUE)
+
+sleep 10s
+
+AVAILABLE_COIN=$(planqd query bank balances ${ADDRESS} --output json | jq -r '.balances | map(select(.denom == "ustars")) | .[].amount' | tr -cd [:digit:])
+KEEP_FOR_GAS=1000000
+AMOUNT=$(($AVAILABLE_COIN - $KEEP_FOR_GAS))
+AMOUNT_FINAL=$AMOUNT"aplanq"
+
+sleep 10s
+
+# Delegate
+planqd tx staking delegate "${VALIDATOR}" "${AMOUNT_FINAL}" --from "${KEY_NAME}" --chain-id=${CHAIN_ID} --gas="${GAS_VALUE}" --gas-price="${PRICE_VALUE}" --gas-adjustment="$(VALUE)
+
+echo $PWD | planqd tx staking delegate "${VALIDATOR}" "${AMOUNT_FINAL}" --from "${KEY_NAME}" --chain-id=${CHAIN_ID} --gas="${GAS_VALUE}" --gas-price="${PRICE_VALUE}" --gas-adjustment="$(VALUE)
+
+############ END - AUTO DELEGATION #########
