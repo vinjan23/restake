@@ -10,4 +10,8 @@ chmod +x delegate.sh
 
 
 ### Set 
+```
+sudo nano delegate.sh
+crontab -e
+```
 
