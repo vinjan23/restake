@@ -1,10 +1,10 @@
 #!/bin/bash
 RED_COLOR='\033[0;31m'
 WITHOU_COLOR='\033[0m'
-DELEGATOR_ADDRESS='plq1rxxxxxx'
-VALIDATOR_ADDRESS='plqvaloperxxxx'
+DELEGATOR_ADDRESS='plq1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmzhj3qj'
+VALIDATOR_ADDRESS='plqvaloper1923gyajfkyrt7xwh0p7zmfrdnnfrx6gmufltxr'
 DELAY=1800*1 #in secs - how often restart the script 
-WALLET_NAME=wallet #don't need to change it
+WALLET_NAME=jb #don't need to change it
 #NODE="tcp://127.0.0.1:33657" #don't need to change it
 
 for (( ;; )); do
