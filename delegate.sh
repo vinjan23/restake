@@ -23,7 +23,7 @@ sleep 10s
 AVAILABLE_COIN=$(planqd query bank balances ${ADDRESS} --output json | jq -r '.balances | map(select(.denom == "aplanq")) | .[].amount' | tr -cd [:digit:])
 KEEP_FOR_FEES=1000000
 AMOUNT=$(($AVAILABLE_COIN - $KEEP_FOR_FEES))
-AMOUNT_FINAL=$AMOUNT"apkanq"
+AMOUNT_FINAL=$AMOUNT"aplanq"
 
 sleep 10s
 
