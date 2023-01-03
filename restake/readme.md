@@ -109,7 +109,7 @@ systemctl status restake.timer
   },
   ```
   
-`Add Network.local.json`
+`Add Network.local.json` `uuid ??> https://healthchecks.io/
 ```
 {
   "planq": {
