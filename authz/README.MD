@@ -19,6 +19,8 @@ npm install
 cp .env.sample .env
 nano .env
 ```
+`Input New Mnemonic Phrase`
+
 `Crtl X + Y Enter`
 
 ###
