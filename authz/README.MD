@@ -92,6 +92,41 @@ systemctl status restake.service
 systemctl status restake.timer
 ```
 
+`Add Network.json`
+```
+{
+  "planq": {
+    "prettyName": "planq",
+    "restUrl": [
+      "https://rest.cosmos.directory/planq"
+    ],
+    "gasPrice": "30000000000aplang",
+    "autostake": {
+      "retries": 3,
+      "batchPageSize": 100,
+      "batchQueries": 25,
+      "batchTxs": 50,
+      "delegationsTimeout": 20000,
+      "queryTimeout": 5000,
+      "queryThrottle": 100,
+      "gasModifier": 1.1
+    },
+    "healthCheck": {
+      "uuid": "d8f1fcd0-31aa-4ae7-a366-7c2bfc811c85"
+    }
+  },
+  "planq": {
+    "prettyName": "planq",
+    "autostake": {
+      "correctSlip44": true
+    }
+  },
+  "cosmoshub": {
+    "enabled": false
+  }
+}
+```
+
 
 
 
