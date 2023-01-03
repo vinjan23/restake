@@ -92,6 +92,11 @@ systemctl status restake.service
 systemctl status restake.timer
 ```
 
+
+### Customise ReStake
+`
+/root/restake/src/`
+
 `Add network.json`
 ```
 {
