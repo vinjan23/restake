@@ -122,7 +122,7 @@ systemctl status restake.timer
       "gasModifier": 1.1
     },
     "healthCheck": {
-      "uuid": "d8f1fcd0-31aa-4ae7-a366-7c2bfc811c85"
+      "uuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
     }
   },
   "planq": {
