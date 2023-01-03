@@ -92,7 +92,17 @@ systemctl status restake.service
 systemctl status restake.timer
 ```
 
-`Add Network.json`
+`Add network.json`
+```
+{
+    "name": "planq",
+    "prettyName": "planq",
+    "gasPrice": "30000000000aplanq",
+    "ownerAddress": plqvaloper,,,,,,,,,
+  },
+  ```
+  
+`Add Network.local.json`
 ```
 {
   "planq": {
