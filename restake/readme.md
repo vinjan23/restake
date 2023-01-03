@@ -99,7 +99,7 @@ systemctl status restake.timer
 `
 /root/restake/src/`
 
-`Add network.json`
+`Add network.json` `Edit ownerAddress`
 ```
 {
     "name": "planq",
