@@ -127,7 +127,26 @@ WantedBy=timers.target
 }
 ```
 ### Submit Your Operator Validator
-### Make PullRequest PR > [PR](https://github.com/eco-stake/validator-registry)        
+### Make PullRequest >>> [PR](https://github.com/eco-stake/validator-registry)
+Create `profile.json`
+```
+{
+  "$schema": "../profile.schema.json",
+  "name": "Name",
+  "identity": "ID                          "
+ }
+ ```
+ Create `chains.json`
+```
+ "name": "planq",
+      "address": "<validator_address>",
+      "restake": {
+        "address": "<new-wallet>",
+        "run_time": "every 6 hour",
+        "minimum_reward": 100000000000000000
+       }
+```       
+      
 
 ### Start Service
 ```
