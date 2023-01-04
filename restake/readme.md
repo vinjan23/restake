@@ -1,3 +1,10 @@
+#   AUTO RESTAKE for COSMOS MAINNET
+
+
+`You can customize with your chain`
+
+
+
 ###  Update package
 ```
 sudo apt update && \
