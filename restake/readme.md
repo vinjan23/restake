@@ -127,7 +127,7 @@ WantedBy=timers.target
 }
 ```
 ### Submit Your Operator Validator
-### Make PR Register > [Register](https://github.com/eco-stake/validator-registry)        
+### Make PullRequest PR > [PR](https://github.com/eco-stake/validator-registry)        
 
 ### Start Service
 ```
