@@ -110,7 +110,7 @@ WantedBy=timers.target
   "planq": {
     "prettyName": "planq",
     "restUrl": [
-      "https://rest.cosmos.directory/planq"
+      "https://rest.planq.network/"
     ],
     "gasPrice": "30000000000aplang",
     "autostake": {
