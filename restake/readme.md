@@ -66,7 +66,7 @@ Wants=restake.timer
 
 [Service]
 Type=oneshot
-WorkingDirectory=/path/to/restake
+WorkingDirectory=/root/restake
 ExecStart=/usr/bin/docker-compose run --rm app npm run autostake
 
 [Install]
