@@ -21,6 +21,7 @@ sudo apt-get update && sudo apt install jq && sudo apt install apt-transport-htt
 ```
 
 ### Setup a New wallet `Use new Wallet not Main Wallet` & `Save Mnemonic Phrase`
+`Fill New Wallet with some fund for Gas`
 
 ### Build
 ```
