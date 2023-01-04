@@ -78,23 +78,6 @@ OnCalendar=*-*-* 21:00:00
 WantedBy=timers.target
 ```
 
-### Start Service
-```
-systemctl enable restake.service
-systemctl enable restake.timer
-systemctl start restake.timer
-```
-### check Service
-```
-systemctl status restake.service
-```
-
-### Check Timer
-```
-systemctl status restake.timer
-```
-
-
 ### Customise ReStake
 `
 /root/restake/src/`
@@ -143,7 +126,24 @@ systemctl status restake.timer
   }
 }
 ```
+### Submit Your Operator Validator
+### Make PR Register > [Register](https://github.com/eco-stake/validator-registry)        
 
+### Start Service
+```
+systemctl enable restake.service
+systemctl enable restake.timer
+systemctl start restake.timer
+```
+### check Service
+```
+systemctl status restake.service
+```
+
+### Check Timer
+```
+systemctl status restake.timer
+```
 
 
 
