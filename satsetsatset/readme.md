@@ -1,4 +1,4 @@
-# RESTAKE
+# satsetsatset
 
 
 `Make New Wallet or Main Wallet Mnemonic`
@@ -31,6 +31,11 @@ npm install
 ```
 
 ### Script
+
+```
+nano $HOME/restake/restake.sh
+```
+
 ```
 #!/bin/bash
 cd $HOME/restake
